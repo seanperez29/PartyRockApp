@@ -26,6 +26,15 @@ class MainVC: UIViewController {
         partyRocks.append(partyRock4)
         partyRocks.append(partyRock5)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "VideoVC" {
+            let controller = segue.destination as! VideoVC
+            if let partyRock = sender as? PartyRock {
+                controller.partyRock = partyRock
+            }
+        }
+    }
 
 }
 
@@ -40,6 +49,11 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
         let partyRock = partyRocks[indexPath.row]
         cell.updateUI(partyRock: partyRock)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let partyRock = partyRocks[indexPath.row]
+        performSegue(withIdentifier: "VideoVC", sender: partyRock)
     }
 }
 
