@@ -76,7 +76,7 @@
                                 <rect key="frame" x="0.0" y="206" width="375" height="461"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="85" id="7PW-p1-w1R">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PartyCell" rowHeight="85" id="7PW-p1-w1R" customClass="PartyCell" customModule="PartyRockApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7PW-p1-w1R" id="zAz-9C-PxX">
@@ -106,8 +106,16 @@
                                                 <constraint firstAttribute="bottom" secondItem="Cca-68-oQ0" secondAttribute="bottom" constant="7" id="aBt-bf-DGA"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="videoPreviewImage" destination="Cca-68-oQ0" id="zCp-c8-RE3"/>
+                                            <outlet property="videoTitle" destination="H5k-8f-Gzy" id="hAS-6Z-XGx"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="0u5-77-fiU"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="a4L-2b-REG"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -125,6 +133,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="tableView" destination="cfC-d2-6eI" id="KG1-DW-tnj"/>
                         <segue destination="ERi-Yn-Urr" kind="showDetail" identifier="VideoVC" id="xDM-gr-LmF"/>
                     </connections>
                 </viewController>
